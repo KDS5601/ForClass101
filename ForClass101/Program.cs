@@ -7,11 +7,25 @@ namespace ForClass101
     {
         static void Main(string[] args)
         {
+            List<Vehicle> road = new List<Vehicle>();
+            List<Vehicle.Wheel> wheels = new List<Vehicle.Wheel>();
+
+            Car car = new Car(4, , 100);
+
+            Bike bike = new Bike(2, [new Wheel("plastic"), new Wheel("plastic")], 50);
+
+            road.push(car);
+            road.push(bike);
+            car.run();
+            bike.start();
+
+            console.log("All vehicles on road: ", road);
+            console.log("isEmpty: ", car.isRoadEmpty(road));
 
         }
     }
 
-    class Vehicle
+    public class Vehicle
     {
         private int numberOfWheels; // bigger than -1
         public List<Wheel> wheels = new List<Wheel>();
@@ -38,7 +52,7 @@ namespace ForClass101
             public string kind;
             public int rpm = 0;
 
-            Wheel(string kind_p)
+            public Wheel(string kind_p)
             {
                 this.kind = kind_p;
             }
