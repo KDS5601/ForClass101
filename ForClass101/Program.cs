@@ -24,10 +24,17 @@ namespace ForClass101
             Console.Write("All vehicles on road: ");
             foreach (Vehicle vehicle in road)
             {
-                Console.Write(vehicle.GetType().ToString() + " ");
+                Console.Write(vehicle.ToString() + " ");
             }
             Console.Write("\n");
-            Console.WriteLine("isEmpty: " + car.isRoadEmpty(ref road));
+            Console.WriteLine("isEmpty: " + ChakRoadEmpty(ref road));
+
+            //이하 지역함수
+
+            bool ChakRoadEmpty(ref List<Vehicle> vehicles)
+            {
+                return (vehicles.Count == 0);
+            }
         }
     }
 }

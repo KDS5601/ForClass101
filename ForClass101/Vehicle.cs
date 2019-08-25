@@ -7,17 +7,13 @@ namespace ForClass101
     public class Vehicle
     {
         protected Wheel[] wheels;
-        private int fuel;
+        private int fuel; // 최대 100
+
 
         public Vehicle(Wheel[] wheels, int fuel)
         {
             this.wheels = wheels;
             this.fuel = fuel;
-        }
-
-        public bool isRoadEmpty(ref List<Vehicle> vehicles)
-        {
-            return (vehicles.Count == 0);
         }
 
         public class Wheel
@@ -30,9 +26,17 @@ namespace ForClass101
                 this.kind = kind_p;
             }
 
-            public void SetNRPM(int r)
+            public string GetKind()
             {
-                this.rpm = r;
+                return kind;
+            }
+            public void SetNRPM(int RPM_p)
+            {
+                this.rpm = RPM_p;
+            }
+            public int GetRPM()
+            {
+                return rpm;
             }
         }
     }
@@ -41,7 +45,7 @@ namespace ForClass101
     {
         public Car(Wheel[] wheels, int fuel) : base(wheels, fuel) { }
 
-        // 시동을 켠다
+        /// <summary>시동을 켠다</summary>
         public void Run()
         {
             foreach (Wheel wheel in wheels)
@@ -49,19 +53,29 @@ namespace ForClass101
                 wheel.SetNRPM(5);
             }
         }
+
+        public override string ToString()
+        {
+            return "Car";
+        }
     }
 
     class Bike : Vehicle
     {
         public Bike(Wheel[] wheels, int fuel) : base(wheels, fuel) { }
 
-        // 페달을 밟는다
+        /// <summary>패달을 밟는다</summary>
         public void Start()
         {
             foreach (Wheel wheel in wheels)
             {
                 wheel.SetNRPM(8);
             }
+        }
+
+        public override string ToString()
+        {
+            return "Bike";
         }
     }
 
